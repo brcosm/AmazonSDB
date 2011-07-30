@@ -12,7 +12,10 @@
 		CA763F9013E4C36300158CB2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8F13E4C36300158CB2 /* CoreGraphics.framework */; };
 		CA763F9613E4C36400158CB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA763F9413E4C36400158CB2 /* InfoPlist.strings */; };
 		CA763F9813E4C36400158CB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763F9713E4C36400158CB2 /* main.m */; };
-		CA763F9C13E4C36400158CB2 /* SDBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763F9B13E4C36400158CB2 /* SDBAppDelegate.m */; };
+		CA763F9C13E4C36400158CB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763F9B13E4C36400158CB2 /* AppDelegate.m */; };
+		CA763FB213E4C46700158CB2 /* SDBAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763FAD13E4C46700158CB2 /* SDBAction.m */; };
+		CA763FB313E4C46700158CB2 /* SDBDomainMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763FAF13E4C46700158CB2 /* SDBDomainMetadata.m */; };
+		CA763FB413E4C46700158CB2 /* SDBListDomains.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763FB113E4C46700158CB2 /* SDBListDomains.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,20 @@
 		CA763F8B13E4C36300158CB2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA763F8D13E4C36300158CB2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CA763F8F13E4C36300158CB2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CA763F9313E4C36400158CB2 /* SDB-Info.plist */ = {isa = PBXFileReference; path = "SDB-Info.plist"; sourceTree = "<group>"; };
+		CA763F9313E4C36400158CB2 /* SDB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SDB-Info.plist"; sourceTree = "<group>"; };
 		CA763F9513E4C36400158CB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CA763F9713E4C36400158CB2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CA763F9913E4C36400158CB2 /* SDB-Prefix.pch */ = {isa = PBXFileReference; path = "SDB-Prefix.pch"; sourceTree = "<group>"; };
-		CA763F9A13E4C36400158CB2 /* SDBAppDelegate.h */ = {isa = PBXFileReference; path = SDBAppDelegate.h; sourceTree = "<group>"; };
-		CA763F9B13E4C36400158CB2 /* SDBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDBAppDelegate.m; sourceTree = "<group>"; };
+		CA763F9913E4C36400158CB2 /* SDB-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDB-Prefix.pch"; sourceTree = "<group>"; };
+		CA763F9A13E4C36400158CB2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CA763F9B13E4C36400158CB2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CA763FAA13E4C46700158CB2 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
+		CA763FAB13E4C46700158CB2 /* SDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDB.h; sourceTree = "<group>"; };
+		CA763FAC13E4C46700158CB2 /* SDBAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBAction.h; sourceTree = "<group>"; };
+		CA763FAD13E4C46700158CB2 /* SDBAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBAction.m; sourceTree = "<group>"; };
+		CA763FAE13E4C46700158CB2 /* SDBDomainMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBDomainMetadata.h; sourceTree = "<group>"; };
+		CA763FAF13E4C46700158CB2 /* SDBDomainMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBDomainMetadata.m; sourceTree = "<group>"; };
+		CA763FB013E4C46700158CB2 /* SDBListDomains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBListDomains.h; sourceTree = "<group>"; };
+		CA763FB113E4C46700158CB2 /* SDBListDomains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBListDomains.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +83,10 @@
 		CA763F9113E4C36400158CB2 /* SDB */ = {
 			isa = PBXGroup;
 			children = (
-				CA763F9A13E4C36400158CB2 /* SDBAppDelegate.h */,
-				CA763F9B13E4C36400158CB2 /* SDBAppDelegate.m */,
+				CA763F9A13E4C36400158CB2 /* AppDelegate.h */,
+				CA763F9B13E4C36400158CB2 /* AppDelegate.m */,
+				CA763FAA13E4C46700158CB2 /* APIKey.h */,
+				CA763FB613E4C4B900158CB2 /* SDB Classes */,
 				CA763F9213E4C36400158CB2 /* Supporting Files */,
 			);
 			path = SDB;
@@ -88,6 +101,20 @@
 				CA763F9913E4C36400158CB2 /* SDB-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA763FB613E4C4B900158CB2 /* SDB Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CA763FAB13E4C46700158CB2 /* SDB.h */,
+				CA763FAC13E4C46700158CB2 /* SDBAction.h */,
+				CA763FAD13E4C46700158CB2 /* SDBAction.m */,
+				CA763FAE13E4C46700158CB2 /* SDBDomainMetadata.h */,
+				CA763FAF13E4C46700158CB2 /* SDBDomainMetadata.m */,
+				CA763FB013E4C46700158CB2 /* SDBListDomains.h */,
+				CA763FB113E4C46700158CB2 /* SDBListDomains.m */,
+			);
+			name = "SDB Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +143,7 @@
 		CA763F7E13E4C36300158CB2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Brandon Smith";
 			};
 			buildConfigurationList = CA763F8113E4C36300158CB2 /* Build configuration list for PBXProject "SDB" */;
@@ -152,7 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA763F9813E4C36400158CB2 /* main.m in Sources */,
-				CA763F9C13E4C36400158CB2 /* SDBAppDelegate.m in Sources */,
+				CA763F9C13E4C36400158CB2 /* AppDelegate.m in Sources */,
+				CA763FB213E4C46700158CB2 /* SDBAction.m in Sources */,
+				CA763FB313E4C46700158CB2 /* SDBDomainMetadata.m in Sources */,
+				CA763FB413E4C46700158CB2 /* SDBListDomains.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +289,7 @@
 				CA763FA113E4C36400158CB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
