@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA763F8C13E4C36300158CB2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8B13E4C36300158CB2 /* UIKit.framework */; };
+		CA763F8E13E4C36300158CB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8D13E4C36300158CB2 /* Foundation.framework */; };
+		CA763F9013E4C36300158CB2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8F13E4C36300158CB2 /* CoreGraphics.framework */; };
+		CA763F9613E4C36400158CB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA763F9413E4C36400158CB2 /* InfoPlist.strings */; };
+		CA763F9813E4C36400158CB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763F9713E4C36400158CB2 /* main.m */; };
+		CA763F9C13E4C36400158CB2 /* SDBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763F9B13E4C36400158CB2 /* SDBAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CA763F8713E4C36300158CB2 /* SDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA763F8B13E4C36300158CB2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CA763F8D13E4C36300158CB2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CA763F8F13E4C36300158CB2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CA763F9313E4C36400158CB2 /* SDB-Info.plist */ = {isa = PBXFileReference; path = "SDB-Info.plist"; sourceTree = "<group>"; };
+		CA763F9513E4C36400158CB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA763F9713E4C36400158CB2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA763F9913E4C36400158CB2 /* SDB-Prefix.pch */ = {isa = PBXFileReference; path = "SDB-Prefix.pch"; sourceTree = "<group>"; };
+		CA763F9A13E4C36400158CB2 /* SDBAppDelegate.h */ = {isa = PBXFileReference; path = SDBAppDelegate.h; sourceTree = "<group>"; };
+		CA763F9B13E4C36400158CB2 /* SDBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDBAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA763F8413E4C36300158CB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA763F8C13E4C36300158CB2 /* UIKit.framework in Frameworks */,
+				CA763F8E13E4C36300158CB2 /* Foundation.framework in Frameworks */,
+				CA763F9013E4C36300158CB2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA763F7C13E4C36300158CB2 = {
+			isa = PBXGroup;
+			children = (
+				CA763F9113E4C36400158CB2 /* SDB */,
+				CA763F8A13E4C36300158CB2 /* Frameworks */,
+				CA763F8813E4C36300158CB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA763F8813E4C36300158CB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA763F8713E4C36300158CB2 /* SDB.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA763F8A13E4C36300158CB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA763F8B13E4C36300158CB2 /* UIKit.framework */,
+				CA763F8D13E4C36300158CB2 /* Foundation.framework */,
+				CA763F8F13E4C36300158CB2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA763F9113E4C36400158CB2 /* SDB */ = {
+			isa = PBXGroup;
+			children = (
+				CA763F9A13E4C36400158CB2 /* SDBAppDelegate.h */,
+				CA763F9B13E4C36400158CB2 /* SDBAppDelegate.m */,
+				CA763F9213E4C36400158CB2 /* Supporting Files */,
+			);
+			path = SDB;
+			sourceTree = "<group>";
+		};
+		CA763F9213E4C36400158CB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA763F9313E4C36400158CB2 /* SDB-Info.plist */,
+				CA763F9413E4C36400158CB2 /* InfoPlist.strings */,
+				CA763F9713E4C36400158CB2 /* main.m */,
+				CA763F9913E4C36400158CB2 /* SDB-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA763F8613E4C36300158CB2 /* SDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA763F9F13E4C36400158CB2 /* Build configuration list for PBXNativeTarget "SDB" */;
+			buildPhases = (
+				CA763F8313E4C36300158CB2 /* Sources */,
+				CA763F8413E4C36300158CB2 /* Frameworks */,
+				CA763F8513E4C36300158CB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDB;
+			productName = SDB;
+			productReference = CA763F8713E4C36300158CB2 /* SDB.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA763F7E13E4C36300158CB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Brandon Smith";
+			};
+			buildConfigurationList = CA763F8113E4C36300158CB2 /* Build configuration list for PBXProject "SDB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CA763F7C13E4C36300158CB2;
+			productRefGroup = CA763F8813E4C36300158CB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA763F8613E4C36300158CB2 /* SDB */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA763F8513E4C36300158CB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA763F9613E4C36400158CB2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA763F8313E4C36300158CB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA763F9813E4C36400158CB2 /* main.m in Sources */,
+				CA763F9C13E4C36400158CB2 /* SDBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CA763F9413E4C36400158CB2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA763F9513E4C36400158CB2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA763F9D13E4C36400158CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA763F9E13E4C36400158CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA763FA013E4C36400158CB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDB/SDB-Prefix.pch";
+				INFOPLIST_FILE = "SDB/SDB-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CA763FA113E4C36400158CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SDB/SDB-Prefix.pch";
+				INFOPLIST_FILE = "SDB/SDB-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA763F8113E4C36300158CB2 /* Build configuration list for PBXProject "SDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA763F9D13E4C36400158CB2 /* Debug */,
+				CA763F9E13E4C36400158CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA763F9F13E4C36400158CB2 /* Build configuration list for PBXNativeTarget "SDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA763FA013E4C36400158CB2 /* Debug */,
+				CA763FA113E4C36400158CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA763F7E13E4C36300158CB2 /* Project object */;
+}
