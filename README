@@ -1,0 +1,16 @@
+Amazon SDB
+==========
+This is a simple interface to the Amazon Web Services product called SimpleDB.  SimpleDB is a key-value store that can be accessed via http requests.
+
+Supported Operations
+--------------------
+A full list of SDB Operations (queries) can be found here:
+http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuideindex.html?SDB_API_Operations.html
+Currently, the following of these are implemented:
+* ListDomains
+* DomainMetadata
+
+
+Installation
+------------
+Requires Xcode 4.2 or greater
