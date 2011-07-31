@@ -1,7 +1,7 @@
 
-#import "SDBAction.h"
+#import "SDBOperation.h"
 
-@interface SDBDomainMetadata : SDBAction
+@interface SDBDomainMetadata : SDBOperation
 
 - (id)initWithDomainName:(NSString *)domainName;
 

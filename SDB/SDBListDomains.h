@@ -1,7 +1,7 @@
 
-#import "SDBAction.h"
+#import "SDBOperation.h"
 
-@interface SDBListDomains : SDBAction
+@interface SDBListDomains : SDBOperation
 
 - (id)initWithMaxNumberOfDomains:(int)max NextToken:(NSString *)next;
 
