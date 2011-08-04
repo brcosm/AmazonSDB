@@ -1,5 +1,5 @@
 
-/*
+/**
  Created by Brandon Smith on 7/2/11.
  Copyright 2011 Brandon Smith. All rights reserved.
 
@@ -20,7 +20,7 @@
  delegate methods such that a dictionary of the response data output.
  */
 
-/*
+/**
  Currently available region endpoints
  More info at: 
  http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuideindex.html?Endpoints.html
@@ -32,7 +32,7 @@
 #define kSDBRegionEndpointAPSouth @"sdb.ap-southeast-1.amazonaws.com"
 #define kSDBRegionEndpointAPNorth @"sdb.ap-northeast-1.amazonaws.com"
 
-/*
+/**
  AWS API Version
  More info at: 
  http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuideindex.html?SDB_API_WSDL.html
@@ -41,22 +41,23 @@
 
 @interface SDBOperation : NSObject <NSXMLParserDelegate> {
 @protected
-    NSMutableDictionary *_parameters;
-    NSString *currentElementName;
-    NSMutableString *currentElementString;
-    BOOL inAttribute;
-    
-    NSMutableDictionary *currentItemDictionary;
-    NSString *currentItemName;
-    
-    NSString *currentKey;
+    NSMutableDictionary *parameters_;
+    NSMutableDictionary *currentItemDictionary_;
+    NSMutableDictionary *responseDictionary_;
+    NSString            *currentElementName_;
+    NSMutableString     *currentElementString_;
+    BOOL                inAttribute_;
+    BOOL                hasNextToken_;
+    NSString            *currentItemName_;
+    NSString            *currentKey_;
 }
 
-@property (copy, nonatomic) NSString *regionEndPoint;
-@property (copy, nonatomic) NSString *version;
+@property (copy, nonatomic)     NSString            *regionEndPoint;
+@property (copy, nonatomic)     NSString            *version;
+@property (readonly, nonatomic) NSMutableDictionary *responseDictionary;
+@property (readonly, nonatomic) BOOL                hasNextToken;
 
-@property (nonatomic, retain) NSMutableDictionary *responseDictionary;
-
+- (void)addToken:(NSString *)token;
 - (NSString *)signedUrlString;
 - (void)parseResponseData:(NSData *)data;
 

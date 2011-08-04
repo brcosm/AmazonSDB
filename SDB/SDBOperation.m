@@ -12,8 +12,8 @@
 
 @interface SDBOperation()
 
-- (NSString *)timeStamp;
 - (NSData *)encrypt:(NSString *)string withKey:(NSString *)privateKey;
+- (NSString *)timeStamp;
 - (NSString *)base64encode:(NSData *)data;
 - (NSString *)escapedSignatureWithString:(NSString *)string;
 - (NSString *)escapedSelectWithString:(NSString *)selectExpression;
@@ -21,7 +21,7 @@
 @end
 
 @implementation SDBOperation
-@synthesize regionEndPoint, version, responseDictionary;
+@synthesize regionEndPoint, version, responseDictionary = responseDictionary_, hasNextToken = hasNextToken_;
 
 /*
  Sets up parameters common to all SDB Operations
@@ -30,14 +30,18 @@
     self = [super init];
     if (self) {
         self.regionEndPoint = kSDBRegionEndpointDefault;
-        self.version = kSDBVersion;
-        _parameters = [NSMutableDictionary dictionary];
-        [_parameters setValue:version forKey:@"Version"];
-        [_parameters setValue:@"HmacSHA256" forKey:@"SignatureMethod"];
-        [_parameters setValue:@"2" forKey:@"SignatureVersion"];
-        [_parameters setValue:[self timeStamp] forKey:@"Timestamp"];
+        self.version        = kSDBVersion;
+        parameters_         = [NSMutableDictionary dictionary];
+        [parameters_ setValue:version forKey:@"Version"];
+        [parameters_ setValue:@"HmacSHA256" forKey:@"SignatureMethod"];
+        [parameters_ setValue:@"2" forKey:@"SignatureVersion"];
+        [parameters_ setValue:[self timeStamp] forKey:@"Timestamp"];
     }
     return self;
+}
+
+- (void)addToken:(NSString *)token {
+    [parameters_ setValue:[NSString stringWithString:token] forKey:@"NextToken"];
 }
 
 #pragma  mark - Response parsing
@@ -52,6 +56,49 @@
     
     NSError *parseError = [parser parserError];
     if (parseError) NSLog(@"%@",[parseError localizedDescription]);
+}
+
+- (void)parser:(NSXMLParser *)parser 
+    didStartElement:(NSString *)elementName 
+    namespaceURI:(NSString *)namespaceURI 
+    qualifiedName:(NSString *)qName 
+    attributes:(NSDictionary *)attributeDict {
+    
+    // Track the current element and empty the string to store found characters
+    currentElementName_ = [NSString stringWithString:elementName];
+    currentElementString_ = [NSMutableString stringWithString:@""];
+    
+    // Set the flag if we are in an attribute (to avoid name collision with item's name tag)
+    if ([elementName isEqualToString:@"Attribute"]) inAttribute_ = YES;
+    
+}
+
+- (void)parser:(NSXMLParser *)parser 
+ didEndElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI 
+ qualifiedName:(NSString *)qName {
+    
+    // Update the flag to indicate we are no longer in an attribute (name tags are now for the item)
+    if ([elementName isEqualToString:@"Attribute"]) inAttribute_ = NO;
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    
+    // Add the characters to the current string
+    [currentElementString_ appendString:string];
+    
+}
+
+- (void)parserDidStartDocument:(NSXMLParser *)parser {
+    
+    // Create a dictionary to store the resposne data
+    responseDictionary_ = [NSMutableDictionary dictionary];
+    
+    // Reset the inAttribute flag
+    inAttribute_ = NO;
+    
+    // Reset the hasNextToken flag
+    hasNextToken_ = NO;
 }
 
 #pragma mark - Signature composition
@@ -70,9 +117,9 @@
     [canonicalString appendFormat:@"AWSAccessKeyId=%@",ACCESS_KEY];
     
     // append sorted parameters
-    NSArray *keys = [[_parameters allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSArray *keys = [[parameters_ allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop){
-        NSString *val = [_parameters valueForKey:key];
+        NSString *val = [parameters_ valueForKey:key];
         [canonicalString appendFormat:@"&%@=%@",key,[self escapedSelectWithString:val]]; 
     }];
     return [NSString stringWithString:canonicalString];
@@ -102,11 +149,11 @@
 - (NSString *)signedUrlString {
     
     NSMutableString *url = [[NSMutableString alloc] init];
-    [_parameters setValue:[self signature] forKey:@"Signature"];
+    [parameters_ setValue:[self signature] forKey:@"Signature"];
     
     [url appendFormat:@"https://%@?", self.regionEndPoint];
     [url appendFormat:@"AWSAccessKeyId=%@",ACCESS_KEY];
-    [_parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *val, BOOL *stop) {
+    [parameters_ enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *val, BOOL *stop) {
         [url appendFormat:@"&%@=%@",key,[self escapedSelectWithString:val]];
     }];
     return [NSString stringWithString:url];

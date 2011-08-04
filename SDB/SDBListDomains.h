@@ -3,7 +3,7 @@
 
 @interface SDBListDomains : SDBOperation
 
-- (id)initWithMaxNumberOfDomains:(int)max NextToken:(NSString *)next;
+- (id)initWithMaxNumberOfDomains:(int)max nextToken:(NSString *)next;
 
 @end
 

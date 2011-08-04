@@ -17,6 +17,7 @@
 		CA763FB313E4C46700158CB2 /* SDBDomainMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763FAF13E4C46700158CB2 /* SDBDomainMetadata.m */; };
 		CA763FB413E4C46700158CB2 /* SDBListDomains.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763FB113E4C46700158CB2 /* SDBListDomains.m */; };
 		CAB15D4E13E5CA890077F5FB /* SDBSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB15D4D13E5CA890077F5FB /* SDBSelect.m */; };
+		CAB15D5413EA4D620077F5FB /* SDB.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB15D5313EA4D620077F5FB /* SDB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CA763FB113E4C46700158CB2 /* SDBListDomains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBListDomains.m; sourceTree = "<group>"; };
 		CAB15D4C13E5CA890077F5FB /* SDBSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBSelect.h; sourceTree = "<group>"; };
 		CAB15D4D13E5CA890077F5FB /* SDBSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBSelect.m; sourceTree = "<group>"; };
+		CAB15D5313EA4D620077F5FB /* SDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				CA763FAB13E4C46700158CB2 /* SDB.h */,
+				CAB15D5313EA4D620077F5FB /* SDB.m */,
 				CA763FAC13E4C46700158CB2 /* SDBOperation.h */,
 				CA763FAD13E4C46700158CB2 /* SDBOperation.m */,
 				CA763FAE13E4C46700158CB2 /* SDBDomainMetadata.h */,
@@ -190,6 +193,7 @@
 				CA763FB313E4C46700158CB2 /* SDBDomainMetadata.m in Sources */,
 				CA763FB413E4C46700158CB2 /* SDBListDomains.m in Sources */,
 				CAB15D4E13E5CA890077F5FB /* SDBSelect.m in Sources */,
+				CAB15D5413EA4D620077F5FB /* SDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

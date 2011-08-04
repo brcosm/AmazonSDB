@@ -3,6 +3,6 @@
 
 @interface SDBSelect : SDBOperation
 
-- (id)initWithExpression:(NSString *)expression NextToken:(NSString *)next;
+- (id)initWithExpression:(NSString *)expression nextToken:(NSString *)next;
 
 @end
