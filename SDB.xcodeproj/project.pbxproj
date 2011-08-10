@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0FD8FE13F23DB90050B813 /* SDBPut.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0FD8FD13F23DB90050B813 /* SDBPut.m */; };
 		CA763F8C13E4C36300158CB2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8B13E4C36300158CB2 /* UIKit.framework */; };
 		CA763F8E13E4C36300158CB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8D13E4C36300158CB2 /* Foundation.framework */; };
 		CA763F9013E4C36300158CB2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA763F8F13E4C36300158CB2 /* CoreGraphics.framework */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA0FD8FC13F23DB90050B813 /* SDBPut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBPut.h; sourceTree = "<group>"; };
+		CA0FD8FD13F23DB90050B813 /* SDBPut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBPut.m; sourceTree = "<group>"; };
 		CA763F8713E4C36300158CB2 /* SDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA763F8B13E4C36300158CB2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA763F8D13E4C36300158CB2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +124,8 @@
 				CA763FB113E4C46700158CB2 /* SDBListDomains.m */,
 				CAB15D4C13E5CA890077F5FB /* SDBSelect.h */,
 				CAB15D4D13E5CA890077F5FB /* SDBSelect.m */,
+				CA0FD8FC13F23DB90050B813 /* SDBPut.h */,
+				CA0FD8FD13F23DB90050B813 /* SDBPut.m */,
 			);
 			name = "SDB Classes";
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				CA763FB413E4C46700158CB2 /* SDBListDomains.m in Sources */,
 				CAB15D4E13E5CA890077F5FB /* SDBSelect.m in Sources */,
 				CAB15D5413EA4D620077F5FB /* SDB.m in Sources */,
+				CA0FD8FE13F23DB90050B813 /* SDBPut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

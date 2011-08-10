@@ -14,12 +14,29 @@
 
 #pragma mark - NSXML Parsing delegate
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+- (void)parser:(NSXMLParser *)parser 
+didStartElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI 
+ qualifiedName:(NSString *)qName 
+    attributes:(NSDictionary *)attributeDict {
+    // Track the current element and empty the string to store found characters
+    currentElementName_ = [NSString stringWithString:elementName];
+    currentElementString_ = [NSMutableString stringWithString:@""];
     
-    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+    // Set the flag if we are in an attribute (to avoid name collision with item's name tag)
+    if ([elementName isEqualToString:@"DomainMetadataResult"]) inAttribute_ = YES;
+}
+
+- (void)parser:(NSXMLParser *)parser 
+ didEndElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI 
+ qualifiedName:(NSString *)qName {
+    // Use the DomainMetadataResult tag to identify attributes
+    inAttribute_ = ![elementName isEqualToString:@"DomainMetadataResult"];
     
     // Add all attributes that are in the results to the dictionary
     if (inAttribute_) [responseDictionary_ setValue:currentElementString_ forKey:elementName];
 }
+
 
 @end

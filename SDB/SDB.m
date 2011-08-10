@@ -24,17 +24,18 @@
 
 - (void)startRequest {
     NSURL *sdbUrl = [NSURL URLWithString:currentOperation_.signedUrlString];
+    NSLog(@"%@", sdbUrl);
     NSURLRequest *sdbReq = [NSURLRequest requestWithURL:sdbUrl];
     NSURLConnection *sdbConn = [NSURLConnection connectionWithRequest:sdbReq delegate:self];
     if (sdbConn)
-        NSLog(@"Performing Select Operation on %@ endpoint with version %@", currentOperation_.regionEndPoint, currentOperation_.version);
+        NSLog(@"Performing %@ Operation on %@ endpoint with version %@",[currentOperation_ class], currentOperation_.regionEndPoint, currentOperation_.version);
     else 
         NSLog(@"Unable to initialize connection; check action parameters");
 }
 
 + (void)selectWithExpression:(NSString *)expression dataDelegate:(id<SDBDataDelegate>)dataDelegate {
     
-    SDBOperation *operation = [[SDBSelect alloc] initWithExpression:@"Select * from Menu limit 3" nextToken:nil]; 
+    SDBOperation *operation = [[SDBSelect alloc] initWithExpression:[NSString stringWithString:expression] nextToken:nil]; 
     SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
     [sdb startRequest];
 }
@@ -47,6 +48,13 @@
 
 + (void)metadataForDomain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate {
     SDBOperation *operation = [[SDBDomainMetadata alloc] initWithDomainName:[NSString stringWithString:domain]];
+    SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
+    [sdb startRequest];
+}
+
++ (void)putItem:(NSString *)item withAttributes:(NSDictionary *)attributes domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate {
+    
+    SDBOperation *operation = [[SDBPut alloc] initWithItemName:item attributes:attributes domainName:domain];
     SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
     [sdb startRequest];
 }
@@ -76,10 +84,10 @@
     
     // The operation object parses the xml
     [currentOperation_ parseResponseData:responseData_];
+    NSLog(@"%@",[[NSString alloc] initWithData:responseData_ encoding:NSUTF8StringEncoding]);
     
     // The parsed data dictionary is sent to the delegate
     [self.dataDelegate didReceiveSDBData:[NSDictionary dictionaryWithDictionary:currentOperation_.responseDictionary]];
 }
-
 
 @end

@@ -13,6 +13,14 @@
 
 #pragma mark - Example Code
 
+- (NSDictionary *)exampleItem {
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setValue:@"1" forKey:@"Availability"];
+    [attributes setValue:@"Sweet" forKey:@"Category"];
+    [attributes setValue:@"3.75" forKey:@"Slice_Price"];
+    return [NSDictionary dictionaryWithDictionary:attributes];
+}
+
 /**
  The following is a simple example of how to use
  AmazonSDB to perform the Select operation.
@@ -23,9 +31,10 @@
         NSLog(@"Add your API keys to APIKey.h");
         exit(0);
     }
-    [SDB selectWithExpression:@"select * from Menu limit 3" dataDelegate:self];
+    [SDB selectWithExpression:@"select * from Menu" dataDelegate:self];
     [SDB metadataForDomain:@"Menu" dataDelegate:self];
     [SDB listDomainsWithMaximum:10 dataDelegate:self];
+    [SDB putItem:@"New Pie" withAttributes:[self exampleItem] domain:@"Menu" dataDelegate:self];
 }
 
 #pragma mark - SDB Delegate

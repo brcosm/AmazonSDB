@@ -59,9 +59,9 @@
 }
 
 - (void)parser:(NSXMLParser *)parser 
-    didStartElement:(NSString *)elementName 
-    namespaceURI:(NSString *)namespaceURI 
-    qualifiedName:(NSString *)qName 
+didStartElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI 
+ qualifiedName:(NSString *)qName 
     attributes:(NSDictionary *)attributeDict {
     
     // Track the current element and empty the string to store found characters
