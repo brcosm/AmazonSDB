@@ -39,6 +39,13 @@
  */
 #define kSDBVersion @"2009-04-15"
 
+/**
+ Toggle consistentcy in get/select requests
+ More info at:
+ http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuideindex.html?ConsistencySummary.html
+ */
+#define CONSISTENT_READ 1
+
 @interface SDBOperation : NSObject <NSXMLParserDelegate> {
 @protected
     NSMutableDictionary *parameters_;

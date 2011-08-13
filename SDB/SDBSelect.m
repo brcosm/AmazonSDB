@@ -1,3 +1,10 @@
+//
+//  SDBSelect.m
+//  SDB
+//
+//  Created by Brandon Smith on 8/13/11.
+//  Copyright 2011 Brandon Smith. All rights reserved.
+//
 
 #import "SDBSelect.h"
 
@@ -12,6 +19,7 @@
     if (self) {
         [parameters_ setValue:@"Select" forKey:@"Action"];
         [parameters_ setValue:expression forKey:@"SelectExpression"];
+        if (CONSISTENT_READ) [parameters_ setValue:@"true" forKey:@"ConsistentRead"];
         if (next) [parameters_ setValue:next forKey:@"NextToken"];
     }
     return self;

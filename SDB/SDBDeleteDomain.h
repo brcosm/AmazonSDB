@@ -1,5 +1,5 @@
 //
-//  SDBSelect.h
+//  SDBDeleteDomain.h
 //  SDB
 //
 //  Created by Brandon Smith on 8/13/11.
@@ -8,8 +8,8 @@
 
 #import "SDBOperation.h"
 
-@interface SDBSelect : SDBOperation
+@interface SDBDeleteDomain : SDBOperation
 
-- (id)initWithExpression:(NSString *)expression nextToken:(NSString *)next;
+- (id)initWithDomainName:(NSString *)domainName;
 
 @end

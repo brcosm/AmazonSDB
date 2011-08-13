@@ -3,7 +3,9 @@
 #import "APIKey.h"
 
 @interface AppDelegate() {
-    SDBOperation *currentOperation;
+    //SDBOperation *currentOperation;
+    int selectorIndex;
+    NSArray *selectors_;
 }
 @end
 
@@ -15,15 +17,49 @@
 
 - (NSDictionary *)exampleItem {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    [attributes setValue:@"1" forKey:@"Availability"];
-    [attributes setValue:@"Sweet" forKey:@"Category"];
-    [attributes setValue:@"3.75" forKey:@"Slice_Price"];
+    [attributes setValue:@"1" forKey:@"Attribute1"];
+    [attributes setValue:@"2" forKey:@"Attribute2"];
+    [attributes setValue:@"three" forKey:@"Attribute3"];
     return [NSDictionary dictionaryWithDictionary:attributes];
 }
 
+- (void)createNewDomain {
+    [SDB createDomain:@"Tester" dataDelegate:self];
+}
+
+- (void)deleteDomain {
+    [SDB deleteDomain:@"Tester" dataDelegate:self]; 
+}
+
+- (void)putItem1 {
+    // TODO: replace with the API BatchPutAttributes operation
+    [SDB putItem:@"Item1" withAttributes:[self exampleItem] domain:@"Tester" dataDelegate:self];
+}
+
+- (void)putItem2 {
+    // TODO: replace with the API BatchPutAttributes operation
+    [SDB putItem:@"Item2" withAttributes:[self exampleItem] domain:@"Tester" dataDelegate:self];
+}
+
+- (void)putItem3 {
+    // TODO: replace with the API BatchPutAttributes operation
+    [SDB putItem:@"Item3" withAttributes:[self exampleItem] domain:@"Tester" dataDelegate:self];
+}
+
+- (void)listItems {
+    [SDB selectWithExpression:@"select * from Tester" dataDelegate:self];
+}
+
+- (void)getItem {
+    [SDB getItem:@"Item1" withAttributes:[NSArray arrayWithObjects:@"Attribute1", @"Attribute2", nil] domain:@"Tester" dataDelegate:self];
+}
+
+- (void)deleteItem {
+    [SDB deleteItem:@"Item1" withAttributes:nil domain:@"Tester" dataDelegate:self];
+}
+
 /**
- The following is a simple example of how to use
- AmazonSDB to perform the Select operation.
+ Example/Test for all SDBOperations
  */
 
 - (void)sdbExample {
@@ -31,16 +67,29 @@
         NSLog(@"Add your API keys to APIKey.h");
         exit(0);
     }
-    [SDB selectWithExpression:@"select * from Menu" dataDelegate:self];
-    [SDB metadataForDomain:@"Menu" dataDelegate:self];
-    [SDB listDomainsWithMaximum:10 dataDelegate:self];
-    [SDB putItem:@"New Pie" withAttributes:[self exampleItem] domain:@"Menu" dataDelegate:self];
+    selectorIndex = 0;
+    selectors_ = [NSArray arrayWithObjects:
+                  [NSValue valueWithPointer:@selector(createNewDomain)], 
+                  [NSValue valueWithPointer:@selector(putItem1)],
+                  [NSValue valueWithPointer:@selector(putItem2)],
+                  [NSValue valueWithPointer:@selector(putItem3)],
+                  [NSValue valueWithPointer:@selector(listItems)], 
+                  [NSValue valueWithPointer:@selector(getItem)], 
+                  [NSValue valueWithPointer:@selector(deleteItem)], 
+                  [NSValue valueWithPointer:@selector(listItems)],
+                  nil];
+    [self deleteDomain];
 }
 
 #pragma mark - SDB Delegate
 
-- (void)didReceiveSDBData:(NSDictionary *)sdbData {
-    NSLog(@"Got SDB data:\n%@",sdbData);
+- (void)didReceiveSDBData:(NSDictionary *)sdbData fromOperation:(SDBOperation *)operation {
+    selectorIndex++;
+    NSLog(@"Got data from %@:\n%@",operation.class, sdbData);
+    if (selectorIndex <= selectors_.count) {
+        SEL nextOperation = [[selectors_ objectAtIndex:selectorIndex-1] pointerValue];
+        [self performSelector:nextOperation];
+    }
 }
 
 #pragma mark - App Delegate

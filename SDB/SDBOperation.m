@@ -156,6 +156,7 @@ didStartElement:(NSString *)elementName
     [parameters_ enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *val, BOOL *stop) {
         [url appendFormat:@"&%@=%@",key,[self escapedSelectWithString:val]];
     }];
+    //NSLog(@"%@",url);
     return [NSString stringWithString:url];
 }
 
