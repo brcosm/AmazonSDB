@@ -32,10 +32,8 @@
 }
 
 - (void)addAttributes:(NSArray *)attributes {
-    __block int i = 0;
     [attributes enumerateObjectsUsingBlock:^(NSString *attribute, NSUInteger idx, BOOL *stop) {
-        [parameters_ setValue:attribute forKey:[NSString stringWithFormat:@"AttributeName.%d",i]];
-        i++;
+        [parameters_ setValue:attribute forKey:[NSString stringWithFormat:@"AttributeName.%d",idx]];
     }];
 }
 

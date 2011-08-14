@@ -91,6 +91,12 @@
     [sdb startRequest];
 }
 
++ (void)putItems:(NSDictionary *)items domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate {
+    SDBOperation *operation = [[SDBBatchPut alloc] initWithItems:items domainName:domain];
+    SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
+    [sdb startRequest];
+}
+
 + (void)getItem:(NSString *)item withAttributes:(NSArray *)attributes domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate {
     SDBOperation *operation = [[SDBGet alloc] initWithItemName:item attributes:attributes domainName:domain];
     SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
@@ -102,6 +108,13 @@
     SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
     [sdb startRequest];
 }
+
++ (void)deleteItems:(NSDictionary *)items domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate {
+    SDBOperation *operation = [[SDBBatchDelete alloc] initWithItems:items domainName:domain];
+    SDB *sdb = [[SDB alloc] initWithOperation:operation andDataDelegate:dataDelegate];
+    [sdb startRequest];
+}
+
 
 #pragma mark - Connection Delegate
 

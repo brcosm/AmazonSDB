@@ -31,13 +31,9 @@
 }
 
 - (void)addAttributes:(NSDictionary *)attributes {
-    __block int i = 0;
+    
     [attributes.allKeys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
-        [parameters_ setValue:key forKey:[NSString stringWithFormat:@"Attribute.%d.Name",i]];
-        // TODO: handle the conditional cases
-        //NSString *value = [attributes valueForKey:key];
-        //[parameters_ setValue:value forKey:[NSString stringWithFormat:@"Attribute.%d.Value",i]];
-        i++;
+        [parameters_ setValue:key forKey:[NSString stringWithFormat:@"Attribute.%d.Name",idx]];
     }];
 }
 

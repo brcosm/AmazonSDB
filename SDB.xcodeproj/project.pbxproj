@@ -23,6 +23,8 @@
 		CA763FB413E4C46700158CB2 /* SDBListDomains.m in Sources */ = {isa = PBXBuildFile; fileRef = CA763FB113E4C46700158CB2 /* SDBListDomains.m */; };
 		CAB15D4E13E5CA890077F5FB /* SDBSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB15D4D13E5CA890077F5FB /* SDBSelect.m */; };
 		CAB15D5413EA4D620077F5FB /* SDB.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB15D5313EA4D620077F5FB /* SDB.m */; };
+		CAF9FFA213F8528D0035B0ED /* SDBBatchDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF9FFA113F8528D0035B0ED /* SDBBatchDelete.m */; };
+		CAF9FFA613F858470035B0ED /* SDBBatchPut.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF9FFA513F858470035B0ED /* SDBBatchPut.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,10 @@
 		CAB15D4C13E5CA890077F5FB /* SDBSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBSelect.h; sourceTree = "<group>"; };
 		CAB15D4D13E5CA890077F5FB /* SDBSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBSelect.m; sourceTree = "<group>"; };
 		CAB15D5313EA4D620077F5FB /* SDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDB.m; sourceTree = "<group>"; };
+		CAF9FFA013F8528D0035B0ED /* SDBBatchDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBBatchDelete.h; sourceTree = "<group>"; };
+		CAF9FFA113F8528D0035B0ED /* SDBBatchDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBBatchDelete.m; sourceTree = "<group>"; };
+		CAF9FFA413F858470035B0ED /* SDBBatchPut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBBatchPut.h; sourceTree = "<group>"; };
+		CAF9FFA513F858470035B0ED /* SDBBatchPut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBBatchPut.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,10 @@
 				CA3D789513F6F96100B03036 /* SDBGet.m */,
 				CA3D789713F6FD9200B03036 /* SDBDelete.h */,
 				CA3D789813F6FD9200B03036 /* SDBDelete.m */,
+				CAF9FFA013F8528D0035B0ED /* SDBBatchDelete.h */,
+				CAF9FFA113F8528D0035B0ED /* SDBBatchDelete.m */,
+				CAF9FFA413F858470035B0ED /* SDBBatchPut.h */,
+				CAF9FFA513F858470035B0ED /* SDBBatchPut.m */,
 			);
 			name = "SDB Classes";
 			sourceTree = "<group>";
@@ -224,6 +234,8 @@
 				CA3D789313F6F2F300B03036 /* SDBCreateDomain.m in Sources */,
 				CA3D789613F6F96100B03036 /* SDBGet.m in Sources */,
 				CA3D789913F6FD9200B03036 /* SDBDelete.m in Sources */,
+				CAF9FFA213F8528D0035B0ED /* SDBBatchDelete.m in Sources */,
+				CAF9FFA613F858470035B0ED /* SDBBatchPut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

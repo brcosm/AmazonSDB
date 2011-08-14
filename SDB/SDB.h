@@ -15,6 +15,8 @@
 #import "SDBPut.h"
 #import "SDBGet.h"
 #import "SDBDelete.h"
+#import "SDBBatchPut.h"
+#import "SDBBatchDelete.h"
 
 @protocol SDBDataDelegate
 
@@ -27,12 +29,18 @@
 @property (weak, nonatomic) id<SDBDataDelegate> dataDelegate;
 
 + (void)selectWithExpression:(NSString *)expression dataDelegate:(id<SDBDataDelegate>)dataDelegate;
-+ (void)putItem:(NSString *)item withAttributes:(NSDictionary *)attributes domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
 + (void)getItem:(NSString *)item withAttributes:(NSDictionary *)attributes domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
+
++ (void)putItem:(NSString *)item withAttributes:(NSDictionary *)attributes domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
++ (void)putItems:(NSDictionary *)items domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
+
 + (void)deleteItem:(NSString *)item withAttributes:(NSDictionary *)attributes domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
++ (void)deleteItems:(NSDictionary *)items domain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
 
 + (void)listDomainsWithMaximum:(int)max dataDelegate:(id<SDBDataDelegate>)dataDelegate;
++ (void)metadataForDomain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
+
 + (void)createDomain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
 + (void)deleteDomain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
-+ (void)metadataForDomain:(NSString *)domain dataDelegate:(id<SDBDataDelegate>)dataDelegate;
+
 @end

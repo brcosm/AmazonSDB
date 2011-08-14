@@ -23,6 +23,14 @@
     return [NSDictionary dictionaryWithDictionary:attributes];
 }
 
+- (NSDictionary *)exampleItems {
+    NSMutableDictionary *items = [NSMutableDictionary dictionary];
+    [items setValue:[self exampleItem] forKey:@"Item4"];
+    [items setValue:[self exampleItem] forKey:@"Item5"];
+    [items setValue:[self exampleItem] forKey:@"Item6"];
+    return [NSDictionary dictionaryWithDictionary:items];
+}
+
 - (void)createNewDomain {
     [SDB createDomain:@"Tester" dataDelegate:self];
 }
@@ -32,18 +40,19 @@
 }
 
 - (void)putItem1 {
-    // TODO: replace with the API BatchPutAttributes operation
     [SDB putItem:@"Item1" withAttributes:[self exampleItem] domain:@"Tester" dataDelegate:self];
 }
 
 - (void)putItem2 {
-    // TODO: replace with the API BatchPutAttributes operation
     [SDB putItem:@"Item2" withAttributes:[self exampleItem] domain:@"Tester" dataDelegate:self];
 }
 
 - (void)putItem3 {
-    // TODO: replace with the API BatchPutAttributes operation
     [SDB putItem:@"Item3" withAttributes:[self exampleItem] domain:@"Tester" dataDelegate:self];
+}
+
+- (void)batchPutItems {
+    [SDB putItems:[self exampleItems] domain:@"Tester" dataDelegate:self];
 }
 
 - (void)listItems {
@@ -56,6 +65,10 @@
 
 - (void)deleteItem {
     [SDB deleteItem:@"Item1" withAttributes:nil domain:@"Tester" dataDelegate:self];
+}
+
+- (void)batchDeleteItems {
+    [SDB deleteItems:[self exampleItems] domain:@"Tester" dataDelegate:self];
 }
 
 /**
@@ -73,9 +86,12 @@
                   [NSValue valueWithPointer:@selector(putItem1)],
                   [NSValue valueWithPointer:@selector(putItem2)],
                   [NSValue valueWithPointer:@selector(putItem3)],
+                  [NSValue valueWithPointer:@selector(batchPutItems)],
                   [NSValue valueWithPointer:@selector(listItems)], 
                   [NSValue valueWithPointer:@selector(getItem)], 
                   [NSValue valueWithPointer:@selector(deleteItem)], 
+                  [NSValue valueWithPointer:@selector(listItems)],
+                  [NSValue valueWithPointer:@selector(batchDeleteItems)],
                   [NSValue valueWithPointer:@selector(listItems)],
                   nil];
     [self deleteDomain];

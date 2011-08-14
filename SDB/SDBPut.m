@@ -31,13 +31,12 @@
 }
 
 - (void)addAttributes:(NSDictionary *)attributes {
-    __block int i = 0;
+
     [attributes.allKeys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
         NSString *value = [attributes valueForKey:key];
-        [parameters_ setValue:key forKey:[NSString stringWithFormat:@"Attribute.%d.Name",i]];
-        [parameters_ setValue:value forKey:[NSString stringWithFormat:@"Attribute.%d.Value",i]];
-        [parameters_ setValue:@"true" forKey:[NSString stringWithFormat:@"Attribute.%d.Replace",i]];
-        i++;
+        [parameters_ setValue:key forKey:[NSString stringWithFormat:@"Attribute.%d.Name",idx]];
+        [parameters_ setValue:value forKey:[NSString stringWithFormat:@"Attribute.%d.Value",idx]];
+        [parameters_ setValue:@"true" forKey:[NSString stringWithFormat:@"Attribute.%d.Replace",idx]];
     }];
 }
 
